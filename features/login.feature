@@ -1,10 +1,11 @@
-#Language: pt
+#language: pt
 
 Funcionalidade: Login
     Para que eu possa gerenciar os filmes do catálogo NinjaFlix
     Sendo um usuário previamente cadastrado
     Posso acessar o sistema com meu email e senha
-
+    
+    @login_happy
     Cenario: Acesso
         Quando eu faço login com "tony@stark.com" e "pwd123"
         Entao devo ser autenticado

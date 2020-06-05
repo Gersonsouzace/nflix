@@ -36,8 +36,14 @@ Funcionalidade: Cadastro de filmes
             | "no_status" | "Oops - O status deve ser informado!"          |
             | "no_year"   | "Oops - Faltou o ano de lançamento também!"    |
             | "no_date"   | "Oops - Quase lá, só falta a data de estréia!" |
-
+@dup_movie
 Cenario: Duplicado
-    Dado que "Deadpool 2" já foi cadastrado
+    O gesto de catalogo tenta cadastrar um novo filme, porem o titulo
+    ja foi cadastrado em outro momento e o sistema notifica o usuario
+    informando que o titulo ja existe.
+
+
+    Dado que "deadpool2" é um novo filme
+    Mas este filme ja existe no catalogo
     Quando eu faço o cadastro deste filme
-    Entao devo ver a notificação "Oops - Este título já existe no Ninjaflix."
+    Entao devo ver a notificaçao "Oops - Este titulo já existe no Ninjaflix."

@@ -1,8 +1,7 @@
 Quando("eu faço login com {string} e {string}") do |email, password|
     @login_page.go
     @login_page.with(email, password)
-   
-    sleep 3
+
 end
   
 Entao("devo ser autenticado") do

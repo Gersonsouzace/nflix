@@ -20,21 +20,22 @@ Funcionalidade: Cadastro de filmes
             | "spider"   |
             | "jocker"   |
 
-Cenario: Sem nome
-    Quando eu tento  cadastrar um filme sem o nome
-    Então devo ver a notificação "Oops - Filme sem título. Pode isso Arnaldo?"
+    @attempt_movie
+    Esquema do Cenario: Campos Obrigatorios
+        O gestor de catálogo tenta cadastrar um novo filme, mas esquece
+        de preencher um dos campos que são obrigatorios, em seguida o sistema
+        exibe uma notificaça para o usuario
 
-Cenario: Sem status
-    Quando eu tento cadastrar um filme sem status
-    Então devo ver a notificação "Oops - O status deve ser informardo!"
+        Dado que <codigo> é um novo filme
+        Quando eu faço o cadastro deste filme
+        Entao devo ver a notificaçao <texto>
 
-Cenario: Ano de lançamento não informado
-    Quando eu cadastrar um filme sem ano de lançamento
-    Entao devo ver a notificação "Oops - Faltou o ano de lançamento também!"
-
-Cenario: Data da estreia não informada
-    Quando eu tento cadastrar um filme sem data de estréia 
-    Entao devo ver a notificação "Oops -  Quase lá, só falta a data da estréia!"
+        Exemplos:
+            | codigo      | texto                                          |
+            | "no_title"  | "Oops - Filme sem titulo. Pode isso Arnaldo?"  |
+            | "no_status" | "Oops - O status deve ser informado!"          |
+            | "no_year"   | "Oops - Faltou o ano de lançamento também!"    |
+            | "no_date"   | "Oops - Quase lá, só falta a data de estréia!" |
 
 Cenario: Duplicado
     Dado que "Deadpool 2" já foi cadastrado
